@@ -1,0 +1,6 @@
+@import url('./color.css');
+
+body {
+  color: var(--on-surface-color);
+  background-color: var(--surface-color);
+}
