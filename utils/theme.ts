@@ -6,25 +6,32 @@ const isTheme = (theme: unknown): theme is Theme =>
 
 export const DEFAULT_THEME: Theme = "light";
 
+const getCurrentTheme = () => document.documentElement.style.getPropertyValue("--theme");
+
+export const setCurrentTheme = (theme: Theme) => {
+  document.documentElement.style.setProperty("--theme", theme);
+  setCurrentThemeEffect(theme);
+}
+
 const removeAllThemes = () => {
   THEMES.forEach((theme) => {
     document.documentElement.classList.remove(`theme-${theme}`);
   });
 };
 
-export const setThemeEffect = (theme: Theme) => {
+export const setCurrentThemeEffect = (theme: Theme) => {
   removeAllThemes();
   document.documentElement.classList.add(`theme-${theme}`);
   localStorage.setItem("theme", theme);
 };
 
-export const toggleTheme = () => {
-  const currentTheme = getTheme();
+export const toggleCurrentTheme = () => {
+  const currentTheme = getCurrentTheme();
   const newTheme = currentTheme === "dark" ? "light" : "dark";
-  setThemeEffect(newTheme);
+  setCurrentTheme(newTheme);
 }
 
-export const getTheme = () => {
+export const getInitialTheme = () => {
   const localStorageTheme = localStorage.getItem("theme");
   if (isTheme(localStorageTheme)) return localStorageTheme;
 

@@ -2,12 +2,12 @@
 import { useThemeStore } from "~/store/theme";
 
 const store = useThemeStore();
-const handleToggleTheme = () => {
+const handletoggleCurrentTheme = () => {
   // storeを使わない場合
-  // toggleTheme();
+  toggleCurrentTheme();
 
   // storeを使う場合
-  store.toggleTheme();
+  // store.toggleCurrentTheme();
 }
 </script>
 <template>
@@ -19,13 +19,13 @@ const handleToggleTheme = () => {
           class="icon icon--dark"
           icon="mdi-weather-sunny"
           size="large"
-          @click="handleToggleTheme"
+          @click="handletoggleCurrentTheme"
         ></v-btn>
         <v-btn
           class="icon icon--light"
           icon="mdi-weather-night"
           size="large"
-          @click="handleToggleTheme"
+          @click="handletoggleCurrentTheme"
         ></v-btn>
       </v-col>
     </v-row>
