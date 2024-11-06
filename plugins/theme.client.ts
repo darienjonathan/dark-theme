@@ -1,12 +1,12 @@
 import { useThemeStore } from "~/store/theme";
 
 export default defineNuxtPlugin(() => {
-  const theme = getTheme();
+  const theme = getInitialTheme();
 
   // ストアを使わない場合
-  // setThemeEffect(theme);
+  // setCurrentThemeEffect(theme);
 
   // ストアを使う場合
   const themeStore = useThemeStore();
-  themeStore.setTheme(theme);
+  themeStore.setCurrentTheme(theme);
 });
