@@ -54,19 +54,21 @@ const handletoggleCurrentTheme = () => {
   display: none;
 }
 
-:is(.theme-dark) .icon.icon--dark {
-  display: block;
+html:is(.theme-dark) .icon {
+  --display-dark: block;
+  --display-light: none;
 }
 
-:is(.theme-dark) .icon.icon--light {
-  display: none;
+html:is(.theme-light) .icon {
+  --display-dark: none;
+  --display-light: block;
 }
 
-:is(.theme-light) .icon.icon--dark {
-  display: none;
+.icon.icon--dark {
+  display: var(--display-dark);
 }
 
-:is(.theme-light) .icon.icon--light {
-  display: block;
+.icon.icon--light {
+  display: var(--display-light);
 }
 </style>
