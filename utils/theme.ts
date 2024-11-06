@@ -1,10 +1,10 @@
 const THEMES = ["dark", "light"] as const;
-type Theme = (typeof THEMES)[number];
+export type Theme = (typeof THEMES)[number];
 
 const isTheme = (theme: unknown): theme is Theme =>
   THEMES.some((t) => t === theme);
 
-const DEFAULT_THEME: Theme = "light";
+export const DEFAULT_THEME: Theme = "light";
 
 const removeAllThemes = () => {
   THEMES.forEach((theme) => {
@@ -12,11 +12,17 @@ const removeAllThemes = () => {
   });
 };
 
-export const setTheme = (theme: Theme) => {
+export const setThemeEffect = (theme: Theme) => {
   removeAllThemes();
   document.documentElement.classList.add(`theme-${theme}`);
   localStorage.setItem("theme", theme);
 };
+
+export const toggleTheme = () => {
+  const currentTheme = getTheme();
+  const newTheme = currentTheme === "dark" ? "light" : "dark";
+  setThemeEffect(newTheme);
+}
 
 export const getTheme = () => {
   const localStorageTheme = localStorage.getItem("theme");

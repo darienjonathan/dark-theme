@@ -1,8 +1,8 @@
 /* light theme */
 .theme-light {
-  --primary-color: #7886ff;
+  --primary-color: #8cc9ff;
   --on-primary-color: #333;
-  --secondary-color: #8cc9ff;
+  --secondary-color: #7886ff;
   --on-secondary-color: #333;
   --background-color: #f5f5f5;
   --on-background-color: #222;
@@ -14,9 +14,9 @@
 
 /* dark theme */
 .theme-dark {
-  --primary-color: #000e8f;
+  --primary-color: #000e3f;
   --on-primary-color: #ddd;
-  --secondary-color: #00417a;
+  --secondary-color: #000eaf;
   --on-secondary-color: #ddd;
   --background-color: #050505;
   --on-background-color: #ddd;
